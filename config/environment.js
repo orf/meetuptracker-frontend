@@ -1,26 +1,27 @@
 'use strict';
 
-module.exports = function(environment) {
+module.exports = function (environment) {
   let ENV = {
     modulePrefix: 'meetuptracker-frontend',
     environment,
     rootURL: '/',
     locationType: 'auto',
     EmberENV: {
-      FEATURES: {
-        // Here you can enable experimental features on an ember canary build
-        // e.g. 'with-controller': true
-      },
+      FEATURES: {},
       EXTEND_PROTOTYPES: {
         // Prevent Ember Data from overriding Date.parse.
         Date: false
       }
     },
 
-    APP: {
-      // Here you can pass flags/options to your application instance
-      // when it is created
-    }
+    fontawesome: {
+      icons: {
+        'free-brands-svg-icons': [
+          'meetup'
+        ]
+      }
+    },
+    APP: {}
   };
 
   if (environment === 'development') {
@@ -46,6 +47,7 @@ module.exports = function(environment) {
   if (environment === 'production') {
     // here you can enable a production-specific feature
   }
+
 
   return ENV;
 };
