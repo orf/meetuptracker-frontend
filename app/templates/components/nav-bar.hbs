@@ -8,5 +8,9 @@
     {{/navbar.nav}}
   {{/navbar.content}}
 
-  {{login-button size='sm'}}
+  {{#if session.isAuthenticated}}
+    {{small-profile-info}}
+  {{else}}
+    {{login-button size='sm'}}
+  {{/if}}
 {{/bs-navbar}}

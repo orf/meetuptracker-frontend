@@ -1,0 +1,13 @@
+{{#bs-dropdown as |dd|}}
+  {{#dd.button type="primary" size='sm'}}
+    <img src="{{photo_url}}" class="rounded-circle" height="30">
+    {{name}}
+  {{/dd.button}}
+  {{#dd.menu as |ddm|}}
+    {{#ddm.item}}
+      <a class="dropdown-item" href onclick={{action "logout" dd.closeDropdown}}>
+        Logout
+      </a>
+    {{/ddm.item}}
+  {{/dd.menu}}
+{{/bs-dropdown}}

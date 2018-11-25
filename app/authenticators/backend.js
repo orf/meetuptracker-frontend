@@ -1,24 +1,23 @@
-import {inject as service} from '@ember/service';
 import RSVP from 'rsvp';
 import BaseAuthenticator from 'ember-simple-auth/authenticators/base';
 import fetch from 'fetch';
+import {isEmpty} from '@ember/utils';
 
 export default BaseAuthenticator.extend({
-  currentUser: service(),
+  restore(data) {
+    return this._validate(data) ? Promise.resolve(data) : Promise.reject();
+  },
 
   authenticate(provider, options) {
     return new RSVP.Promise((resolve, reject) => {
-      resolve({lol: 1})
+      fetch('/api/whoami')
+        .then(resp => resp.json())
+        .then(data => resolve(data))
+        .catch(reason => reject(reason))
     })
-  }
+  },
 
-  // authenticate(provider, options) {
-  //   return this._super(provider, options).then(
-  //     data => {
-  //       //fetch(`https://api.meetup.com/2/member/self/?access_token=${data.authorizationCode}`);
-  //       console.log(data);
-  //       return data;
-  //     }
-  //   );
-  // }
+  _validate(data) {
+    return !isEmpty(data.token) && !isEmpty(data.name) && !isEmpty(data.photo)
+  }
 });
