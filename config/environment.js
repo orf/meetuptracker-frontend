@@ -21,14 +21,6 @@ module.exports = function (environment) {
         ]
       }
     },
-    torii: {
-      sessionServiceName: 'session',
-      providers: {
-        'meetup-oauth2': {
-          apiKey: process.env.MEETUP_OAUTH_KEY
-        }
-      }
-    },
 
     APP: {}
   };

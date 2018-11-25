@@ -1,10 +1,16 @@
-import { inject as service } from '@ember/service';
-import ToriiAuthenticator from 'ember-simple-auth/authenticators/torii';
+import {inject as service} from '@ember/service';
+import RSVP from 'rsvp';
+import BaseAuthenticator from 'ember-simple-auth/authenticators/base';
 import fetch from 'fetch';
 
-export default ToriiAuthenticator.extend({
-  torii: service(),
+export default BaseAuthenticator.extend({
   currentUser: service(),
+
+  authenticate(provider, options) {
+    return new RSVP.Promise((resolve, reject) => {
+      resolve({lol: 1})
+    })
+  }
 
   // authenticate(provider, options) {
   //   return this._super(provider, options).then(

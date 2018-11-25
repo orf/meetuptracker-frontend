@@ -6,7 +6,7 @@ export default Component.extend({
 
   actions: {
     login() {
-      this.get('session').authenticate('authenticator:torii', 'meetup-oauth2');
+      window.location.href= '/api/auth/login/meetup/';
     }
   }
 });
