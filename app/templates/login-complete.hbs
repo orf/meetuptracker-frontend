@@ -7,13 +7,6 @@
     That's awkward. The trained monkeys are on it, I promise.
   </h5>
 {{else}}
-  <h3 class="mt-5 text-center">
-    Logging you in...
-  </h3>
-
-  <div class="center-block">
-    {{ember-spinner}}
-  </div>
-
+  {{loading-indicator text="Logging you in..."}}
 {{/if}}
 

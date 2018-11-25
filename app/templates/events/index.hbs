@@ -1,0 +1,12 @@
+<h1 class="mb-3">Events</h1>
+
+{{#each model as |event|}}
+  <div class="card mb-3">
+    <h5 class="card-header">{{event.name}} @ {{event.local_date}} {{event.local_time}}</h5>
+    <div class="card-body">
+      {{#bs-button type="success" size="large" onClick=(action 'viewEvent' event)}}
+        Track Attendance
+      {{/bs-button}}
+    </div>
+  </div>
+{{/each}}
