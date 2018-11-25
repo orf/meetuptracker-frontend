@@ -3,7 +3,9 @@
   <p class="lead">
     A simple way to track and record the attendance at your Meetup.com events
   </p>
-  {{#bs-button type="primary" size="lg" onClick=(action 'login')}}
+  {{#bs-button type="primary" size="lg" onClick=(action "login")}}
     {{fa-icon "meetup" prefix="fab"}} Login with Meetup
   {{/bs-button}}
+
+  Authorization Code: {{session.data.authenticated.authorizationCode}}
 </div>
