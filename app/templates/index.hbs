@@ -1,3 +1,8 @@
 <div class="pt-4">
-  {{welcome-jumbotron}}
+  {{#if session.isAuthenticated}}
+    {{session.data.authorizationCode}}
+    <a {{action 'invalidateSession'}}>Logout</a>
+  {{else}}
+    {{welcome-jumbotron}}
+  {{/if}}
 </div>
