@@ -11,8 +11,9 @@ var Meetup = Oauth2.extend({
   baseUrl: 'https://secure.meetup.com/oauth2/authorize',
 
   requiredUrlParams: ['state', 'setMobile'],
-  responseParams: ['code'],
+  responseParams: ['token'],
   setMobile: 'on',
+  responseType: 'token',
 
   state: 'STATE',
 

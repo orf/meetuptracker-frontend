@@ -6,13 +6,13 @@ export default ToriiAuthenticator.extend({
   torii: service(),
   currentUser: service(),
 
-  authenticate(provider, options) {
-    return this._super(provider, options).then(
-      data => {
-        fetch(`https://api.meetup.com/2/member/self/?access_token=${data.authorizationCode}`);
-        console.log(data);
-        return data;
-      }
-    );
-  }
+  // authenticate(provider, options) {
+  //   return this._super(provider, options).then(
+  //     data => {
+  //       //fetch(`https://api.meetup.com/2/member/self/?access_token=${data.authorizationCode}`);
+  //       console.log(data);
+  //       return data;
+  //     }
+  //   );
+  // }
 });
