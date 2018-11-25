@@ -10,8 +10,7 @@ export default Adapter.extend({
   },
 
   findRecord(store, type, id, snapshot) {
-    const [event_id, group_name] = id.split(':', 2);
-    return this._fetch(`/${group_name}/events/${event_id}`)
+    return this._fetch(`/${id}`)
       .then(resp => this.handleSingleResponse(resp))
   },
 });

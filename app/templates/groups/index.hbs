@@ -1,29 +1,15 @@
-<h1 class="mb-3">Groups</h1>
+<h1 class="mb-3">Select a group</h1>
 
-<div class="card-deck">
-  {{#each model as |group|}}
-    <div class="card">
-      <img class="card-img-top" src="{{group.key_photo.photo_link}}" style="max-height: 320px" alt="Card image cap">
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content.
-          This content is a little bit longer.</p>
+<div class="list-group">
+  {{# each model as |group|}}
+    {{#link-to "groups.group" group class="list-group-item list-group-item-action flex-column align-items-start mb-2"}}
+      <div class="media">
+        <img class="align-self-center mr-3" src="{{group.group_photo.thumb_link}}">
+        <div class="media-body">
+          <h5 class="mt-0">{{group.name}}</h5>
+          <p>{{group.localized_location}} - {{group.members}} {{group.who}}</p>
+        </div>
       </div>
-      <div class="card-footer">
-        <small class="text-muted">Last updated 3 mins ago</small>
-      </div>
-    </div>
-
-    <div class="card">
-      <img class="card-img-top" src="{{group.key_photo.photo_link}}" style="max-height: 320px" alt="Card image cap">
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content.
-          This content is a little bit longer.</p>
-      </div>
-      <div class="card-footer">
-        <small class="text-muted">Last updated 3 mins ago</small>
-      </div>
-    </div>
+    {{/link-to}}
   {{/each}}
 </div>
