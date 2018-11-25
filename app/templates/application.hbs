@@ -1,16 +1,4 @@
-{{#bs-navbar backgroundColor="dark" type="dark" as |navbar|}}
-  <div class="navbar-header">
-    {{navbar.toggle}}
-    <a class="navbar-brand" href="#">Meetup Tracker</a>
-  </div>
-  {{#navbar.content}}
-    {{#navbar.nav as |nav|}}
-      {{#nav.item}}
-        {{#nav.link-to "index"}}Home{{/nav.link-to}}
-      {{/nav.item}}
-    {{/navbar.nav}}
-  {{/navbar.content}}
-{{/bs-navbar}}
+{{nav-bar}}
 
 <div class="container-fluid">
   {{outlet}}

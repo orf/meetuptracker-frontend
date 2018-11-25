@@ -1,0 +1,12 @@
+{{#bs-navbar backgroundColor="dark" type="dark" as |navbar|}}
+  <a class="navbar-brand" href="#">Meetup Tracker</a>
+  {{#navbar.content}}
+    {{#navbar.nav as |nav|}}
+      {{#nav.item}}
+        {{#nav.link-to "index"}}Home{{/nav.link-to}}
+      {{/nav.item}}
+    {{/navbar.nav}}
+  {{/navbar.content}}
+
+  {{login-button size='sm'}}
+{{/bs-navbar}}
