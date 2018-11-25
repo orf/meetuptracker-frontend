@@ -10,7 +10,7 @@ Router.map(function() {
   this.route('login-complete');
   this.route('events', function() {
     this.route('loading');
-    this.route('event');
+    this.route('event', { path: '/:event_id' });
   });
 });
 

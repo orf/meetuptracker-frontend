@@ -5,5 +5,5 @@ export default DS.Model.extend({
   waitlist_count: DS.attr('number'),
   yes_rsvp_count: DS.attr('number'),
   local_date: DS.attr('string'),
-  local_time: DS.attr('string')
+  local_time: DS.attr('string'),
 });
