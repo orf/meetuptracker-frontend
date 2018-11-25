@@ -1,24 +1,18 @@
 import Adapter from './base';
-import fetch from 'fetch';
 
 
 export default Adapter.extend({
-
-  _fetch(url) {
-    const token = this.get('session.data.authenticated.token');
-    return fetch(`${this.host}${url}?access_token=${token}`)
-      .then(resp => resp.json())
-  },
+  modelName: 'event',
 
   findAll(store, type, sinceToken) {
     return this._fetch('/self/events')
-      .then(resp => this.handleListResponse(resp));
+      .then(resp => this.handleListResponse(resp, this.createCompositeId));
   },
 
   findRecord(store, type, id, snapshot) {
     const [event_id, group_name] = id.split(':', 2);
     return this._fetch(`/${group_name}/events/${event_id}`)
-      .then(resp => this.handleSingleResponse(resp))
+      .then(resp => this.handleSingleResponse(resp, this.createCompositeId))
   },
 
   createCompositeId(event_data) {
@@ -28,16 +22,4 @@ export default Adapter.extend({
     event_data.composite_id = `${event_data.id}:${group_name}`;
     return event_data;
   },
-
-  handleSingleResponse(data) {
-    return {
-      event: this.createCompositeId(data)
-    }
-  },
-
-  handleListResponse(data) {
-    return {
-      events: data.map(this.createCompositeId)
-    }
-  }
 });

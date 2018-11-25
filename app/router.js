@@ -6,12 +6,15 @@ const Router = EmberRouter.extend({
   rootURL: config.rootURL
 });
 
-Router.map(function() {
+Router.map(function () {
   this.route('login-complete');
-  this.route('events', function() {
+  this.route('groups', function () {
     this.route('loading');
-    this.route('event', { path: '/:event_id' });
+    this.route('events', function () {
+      this.route('event', {path: '/:event_id'});
+    });
   });
+
 });
 
 export default Router;

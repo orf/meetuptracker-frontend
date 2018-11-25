@@ -4,7 +4,7 @@ export default Route.extend({
   actions: {
     didTransition() {
       if (this.get('session.isAuthenticated')) {
-        this.replaceWith('events')
+        this.replaceWith('groups')
       }
     }
   }
